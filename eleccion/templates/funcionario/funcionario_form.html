@@ -1,0 +1,35 @@
+{% extends "template.html" %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Nuevo Funcionario</h1>
+        </div>
+
+        <hr>
+    </div>
+
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre completo</label>
+            <div class="col">
+                <input class="form-control" type="text" placeholder="Nombre compelto de candidato" name="nombrecompleto">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Sexo</label>
+            <div class="col">
+                <select class="browser-default custom-select mb-4" id="sexo" class="form-group" name="sexo">
+                    <option value="" disabled selected>Selecionar sexo</option>
+                    <option value="M" for="sexo" class="form-group" name="sexo">(M) Masculino</option>
+                    <option value="F" for="sexo" class="form-group" name="sexo">(F) Femenino</option>
+            </select>
+            </div>
+        </div>
+
+        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">REGISTRAR</button>
+    </form>
+</div>
+{% endblock %}

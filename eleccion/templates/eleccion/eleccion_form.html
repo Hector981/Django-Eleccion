@@ -1,0 +1,56 @@
+{% extends "template.html" %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Eleccion</h1>
+        </div>
+
+        <hr>
+    </div>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Periodo</label>
+            <div class="col">
+                <input value="{{lista_editar.periodo}}" class="form-control" type="text" placeholder="Periodo de eleccion" name="periodo">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Fecha</label>
+            <div class="col">
+                <input value="{{lista_editar.fecha | date:'Y-m-d' }}" class="form-control" type="date" placeholder="Fecha de eleccion" for="fecha" name="fecha">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Fecha de apertura</label>
+            <div class="col">
+                <input value="{{lista_editar.fechaapertura | date:'Y-m-d'}}" class="form-control" type="date" placeholder="Fecha de apertura" for="fechaapertura" name="fechaapertura">
+            </div>
+            <label class="col-2 col-form-label">Hora de apertura</label>
+            <div class="col">
+                <input value="{{lista_editar.horaapertura | date:'H:i'}}" class="form-control" type="time" placeholder="Hora de apertura" name="horaapertura">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Fecha de cierre</label>
+            <div class="col">
+                <input value="{{lista_editar.fechacierre | date:'Y-m-d'}}" class="form-control" type="date" placeholder="Fecha de cierre" name="fechacierre">
+            </div>
+            <label class="col-2 col-form-label">Hora de cierre</label>
+            <div class="col">
+                <input value="{{lista_editar.horacierre | date:'H:i'}}" class="form-control" type="time" placeholder="Hora de cierre" name="horacierre">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Observaciones</label>
+            <div class="col">
+                <input value="{{lista_editar.observaciones}}" class="form-control" type="text" placeholder="Observaciones de eleccion" name="observaciones">
+            </div>
+        </div>
+
+        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">REGISTRAR</button>
+    </form>
+</div>
+{% endblock %}
